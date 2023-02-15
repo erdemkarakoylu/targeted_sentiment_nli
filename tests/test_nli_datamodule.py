@@ -11,18 +11,18 @@ from src.nli_datamodule import split_data
 
 
 @pytest.fixture
-def dataframe_dir():
+def data_directory():
     return Path('../data/sentihood')
 
 @pytest.fixture
-def dataframe()->pd.DataFrame:
-    return pd.read_json(dataframe_dir/'sentihood_dev.json')
+def dataframe(data_directory)->pd.DataFrame:
+    return pd.read_json(data_directory/'sentihood_dev.json')
 
-def test_data_exists(dataframe_dir):
-    assert dataframe_dir.exists()
-    assert (dataframe_dir/'sentihood_dev.json').exists()
-    assert (dataframe_dir/'sentihood_test.json').exists()
-    assert (dataframe_dir/'sentihood_train.json').exists()
+def test_data_exists(data_directory):
+    assert data_directory.exists()
+    assert (data_directory/'sentihood_dev.json').exists()
+    assert (data_directory/'sentihood_test.json').exists()
+    assert (data_directory/'sentihood_train.json').exists()
 
 def test_dataframe_columns(dataframe):
     pass
