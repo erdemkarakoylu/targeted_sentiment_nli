@@ -1,4 +1,5 @@
 from pathlib import Path
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -13,12 +14,19 @@ def acl_14_data(data_directory):
 
 @pytest.fixture(scope='session')
 def sentfin_data(data_directory):
-    return data_directory/ 'sentfin'
+    return data_directory/'sentfin'
 
 @pytest.fixture(scope='session')
 def acl_14_dataframe(acl_14_data)->pd.DataFrame:
-    return pd.read_json(acl_14_data/'acl_14_all.json')
+    return pd.read_json(acl_14_data/'data.json')
 
 @pytest.fixture(scope='session')
 def sentfin_dataframe(sentfin_data):
     return pd.read_json(sentfin_data/'data.json')
+
+@pytest.fixture(scope='session')
+def df_data_types_dict():
+    data_types = {
+        'text': np.dtype('O'), 'target': np.dtype('O'), 
+        'polarity': np.dtype('int64')}
+    return data_types
