@@ -1,18 +1,8 @@
-import sys
-#sys.path.append('../')
-import pandas as pd
 import numpy as np
-from sklearn.datasets import make_classification
-import pytest
+import pandas as pd
 
-from src.nli_datamodule import split_data
+from src.nli_datamodule import NLIDataModule
 
-@pytest.fixture
-def dataframe()->pd.DataFrame:
-    pass
-    
-def test_split_data():
-    pass
 
 def test_set_tokenizer():
     pass
