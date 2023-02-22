@@ -4,6 +4,7 @@ import pandas as pd
 import pytest
 
 from src.nli_datamodule import NLIDataModule
+from src.nli_model import LitNLI
 
 
 @pytest.fixture(scope='session')
@@ -37,3 +38,8 @@ def df_data_types_dict():
 def datamodule():
     dm = NLIDataModule()
     return dm
+
+@pytest.fixture(scope='session')
+def nli_model():
+    model = LitNLI()
+    return model
