@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
+from src.nli_datamodule import NLIDataModule
+
 
 @pytest.fixture(scope='session')
 def data_directory():
@@ -30,3 +32,8 @@ def df_data_types_dict():
         'text': np.dtype('O'), 'target': np.dtype('O'), 
         'polarity': np.dtype('int64')}
     return data_types
+
+@pytest.fixture(scope='session')
+def datamodule():
+    dm = NLIDataModule()
+    return dm
